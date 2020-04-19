@@ -13,7 +13,7 @@
 
 
 for i in `ls *.srt | sed 's/.srt//g'`; do
-	ls *."$1" | grep "$i" | xargs -n1 -I {} mv {} $i.$1
+	ls *."$1" | grep "$i" | xargs -n1 -I {} mv {} "$i"."$1"
 done
 
 
