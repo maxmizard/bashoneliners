@@ -36,8 +36,8 @@ Primeiramente devemos percorrer todos os arquivos .srt. Para isso podemos utiliz
 ```
 #!/bin/bash
 
-for i in $(ls *.srt) do;
-	echo "$i";
+for i in $(ls *.srt); do
+	echo "$i"
 done
 ```
 ###### 30.Rock.S03E01.srt
@@ -53,8 +53,8 @@ vamos manter a extensão original.
 ```
 #!/bin/bash
 
-for i in $(ls *.srt | sed 's/.srt//g') do;
-	echo "$i"; 
+for i in $(ls *.srt | sed 's/.srt//g'); do
+	echo "$i" 
 done
 ```
 ###### 30.Rock.S03E01
@@ -70,8 +70,8 @@ Para isso, podemos substituir o comando `echo` por um filtro.
 ```
 #!/bin/bash
 
-for i in $(ls *.srt | sed 's/.srt//g') do;
-	ls *.mkv | grep "$i"; 
+for i in $(ls *.srt | sed 's/.srt//g'); do
+	ls *.mkv | grep "$i" 
 done
 ```
 ###### **30.Rock.S03E01**.HDTV.XviD-LOL.mkv
@@ -89,8 +89,8 @@ Por fim, basta utilizar o comando `xargs` para renomear cada um dos arquivos, le
 ```
 #!/bin/bash
 
-for i in $(ls *.srt | sed 's/.srt//g') do;
-	ls *.mkv | grep "$i" | xargs -n1 -I {} mv {} "$i".mkv; 
+for i in $(ls *.srt | sed 's/.srt//g'); do
+	ls *.mkv | grep "$i" | xargs -n1 -I {} mv {} "$i".mkv 
 done
 ```
 `$ ls -1`
@@ -116,8 +116,8 @@ Fazendo as modificações, temos:
 ```
 #!/bin/bash
 
-for i in $(ls *.srt | sed 's/.srt//g') do;
-	ls *."$1" | grep "$i" | xargs -n1 -I {} mv {} "$i"."$1"; 
+for i in $(ls *.srt | sed 's/.srt//g'); do
+	ls *."$1" | grep "$i" | xargs -n1 -I {} mv {} "$i"."$1" 
 done
 ```
 
